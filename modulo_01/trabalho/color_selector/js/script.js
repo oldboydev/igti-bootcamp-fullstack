@@ -11,6 +11,11 @@ function initPage(){
     let bTxtField = document.querySelector("#bTxtField");
     let saveBtn = document.querySelector("#saveColor");
     savedColors = [];
+
+    rSlider.value = 0;
+    gSlider.value = 0;
+    bSlider.value = 0;
+
     rTxtField.value = rSlider.value;
     rSlider.addEventListener("input", (e) => {
         rTxtField.value = e.target.value;
@@ -87,7 +92,7 @@ function loadSavedColors(){
 function saveColor(){
     let rgb = {"r": rSlider.value, "g": gSlider.value, "b": bSlider.value};
 
-    if(savedColors.length <=20){
+    if(savedColors.length <=100){
         savedColors.push(rgb);
         window.localStorage.setItem("savedColors", JSON.stringify(savedColors));
     }else{
