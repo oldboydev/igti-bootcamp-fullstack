@@ -1,3 +1,3 @@
 <p align="center">
-    <img src="../../../readme/selector.gif" />
+    <img src="../../../readme/color-selector.gif" />
 </p>
