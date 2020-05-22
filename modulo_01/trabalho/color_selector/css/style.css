@@ -44,3 +44,8 @@ section{
     height: 100%;
 }
 
+.container{
+    margin-top: 100px;
+    padding-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
