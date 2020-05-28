@@ -97,3 +97,13 @@
 .card .card-image .user-icons .icon i.favorite.favorited{
    color: #ff4081;
 }
+
+#showStaticsButton{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    #showStaticsButton{
+        display: block;
+    }
+}
