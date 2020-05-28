@@ -3,6 +3,8 @@ const API_URL = "https://randomuser.me/api/?seed=javascript&results=100&nat=BR&n
 const searchBar = document.querySelector("#searchBar");
 const searchButton = document.querySelector("#searchButton");
 const userWrap = document.querySelector("#loadedUsers");
+const staticsTitleDiv = document.querySelector("#staticsTitleDiv");
+const staticsDiv = document.querySelector("#staticsDiv");
 
 let loadedUsers = [];
 let foundUsers = [];
@@ -119,7 +121,7 @@ function start(){
             el.classList.remove("indigo");
 
             findUsers("female");
-        }
+        } 
 
         renderUsers();
         updateStatics();
@@ -148,6 +150,21 @@ function start(){
         updateStatics();
         renderStatics();
     });
+
+    const showStaticsButton = document.querySelector("#showStaticsButton");
+    showStaticsButton.addEventListener("click", (e) => {
+        let el = e.target;
+
+        if(el.classList.contains("selected")){
+            el.classList.remove("selected");
+            staticsDiv.classList.add("hide-on-small-only");
+            staticsTitleDiv.classList.add("hide-on-small-only");
+        }else{
+            el.classList.add("selected");
+            staticsDiv.classList.remove("hide-on-small-only");
+            staticsTitleDiv.classList.remove("hide-on-small-only");
+        }
+    });      
 }
 
 /**
