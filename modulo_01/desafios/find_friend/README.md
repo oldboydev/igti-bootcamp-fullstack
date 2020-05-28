@@ -21,3 +21,11 @@ Criar uma aplicação para filtrar usuários e mostrar estatísticas a partir do
 6. Montar dois painéis.
 7. No painel da esquerda, listar os usuários filtrados.
 8. No painel da direita, calcular e mostrar algumas estatísticas sobre esses usuários, conforme imagens abaixo.
+
+## Features Implementadas
+Foram implementadas as seguintes features além das requisitadas:
+
+- Filtros pré definidos, é possível filtrar os usuários por sexo e favoritos;
+- Favoritar usuários;
+- Realizar a busca por e-mail;
+- Design responsivo;
