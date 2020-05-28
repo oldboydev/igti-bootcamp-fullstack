@@ -1,5 +1,7 @@
 # Desafio Final Modulo 01 - Fundamentos
-
+<p align="center">
+    <img src="../../../readme/find_friend_mobile.gif" />
+</p> 
 ## Objetivos
 Exercitar os seguintes conceitos trabalhados no Módulo:
 
