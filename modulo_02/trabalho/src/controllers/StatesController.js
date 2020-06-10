@@ -96,17 +96,28 @@ class StatesController{
     async showCompareCitiesNameSize(req, res){
         const { type } = req.params;
 
-        if(type != "big" && type != "small"){
-            return res.status(400).json({ msg: "type parameter must be big or small"});
+        if(type != "big" && type != "small" && type != "biggest" && type != "smallest"){
+            return res.status(400).json({ msg: "type parameter must be big, small, biggest, smallest"});
         }
 
-        try{
-            const citiesBigNames = await this.getCitiesSortedByNameSize(type);
+        if(type == "big" || type == "small"){
+            try{
+                const citiesNames = await this.getCitiesSortedByNameSize(type);
 
-            return res.json(citiesBigNames);
-        }catch(error){
-            console.error(error)
-            return res.status(400).json({ msg: error});
+                return res.json(citiesNames);
+            }catch(error){
+                console.error(error)
+                return res.status(400).json({ msg: error});
+            }
+        }else {
+            try{
+                const citiesNameSize = await this.getCityByNameSize(type);
+
+                return res.json(citiesNameSize);
+            }catch(error){
+                console.error(error)
+                return res.status(400).json({ msg: error});
+            }
         }
     }
 
@@ -144,6 +155,27 @@ class StatesController{
         console.log(citiesBigNames);
 
         return citiesBigNames;
+    }
+
+    async getCityByNameSize(type){
+        let citiesBigNames =  null;
+        let citiesBigNamesSorted = [];
+
+        if(type == "biggest"){
+            citiesBigNames = await this.getCitiesSortedByNameSize("big");
+
+            citiesBigNamesSorted = citiesBigNames.sort( 
+                (a, b) => a.city.length < b.city.length ? 1 : -1
+            );
+        }else{
+            citiesBigNames = await this.getCitiesSortedByNameSize("small");
+
+            citiesBigNamesSorted = citiesBigNames.sort( 
+                (a, b) => a.city.length > b.city.length ? 1 : -1
+            );
+        }
+        
+        return citiesBigNamesSorted[0].city;
     }
 }
 
